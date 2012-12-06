@@ -112,7 +112,7 @@
             color = [UIColor clearColor];
             [colors addObject:(id)[color CGColor]];
             color = [UIColor clearColor];
-            [colors addObject:(id)[color CGColor]];
+            [colors addObject:(id)[color backgroundColor]];
         }
         [(CAGradientLayer *)self.layer setColors:colors];
         [(CAGradientLayer *)self.layer setLocations:[NSArray arrayWithObjects:[NSNumber numberWithFloat:0.0], [NSNumber numberWithFloat:0.48], [NSNumber numberWithFloat:1.0], nil]];
@@ -138,6 +138,7 @@
         if (self.disclosureButton.selected) {
             if ([self.delegate respondsToSelector:@selector(sectionHeaderView:sectionOpened:)]) {
                 [self.delegate sectionHeaderView:self sectionOpened:self.section];
+                [self.delegate setLocations];
             }
         }
         else {
